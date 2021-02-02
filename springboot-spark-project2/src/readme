@@ -1,0 +1,6 @@
+工程架构如下：
+flume监听日志文件，将文件信息输入到kafka
+kafka将信息输入传递给sparkStreaming，进行数据清洗
+
+
+
