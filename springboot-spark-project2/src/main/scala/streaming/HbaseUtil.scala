@@ -1,4 +1,4 @@
-
+package streaming
 
 object HbaseUtil extends Serializable {
 /*

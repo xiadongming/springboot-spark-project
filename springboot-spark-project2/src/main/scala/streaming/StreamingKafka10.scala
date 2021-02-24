@@ -1,18 +1,19 @@
+package streaming
+
+import com.google.common.eventbus.Subscribe
 import org.apache.kafka.clients.consumer.ConsumerRecord
-import org.apache.spark.sql.SparkSession
-import org.apache.spark.streaming.{Seconds, StreamingContext}
 import org.apache.kafka.common.serialization.StringDeserializer
+import org.apache.spark.sql.SparkSession
 import org.apache.spark.streaming.dstream.{DStream, InputDStream}
-import org.apache.spark.streaming.kafka010._
-import org.apache.spark.streaming.kafka010.LocationStrategies.PreferConsistent
-import org.apache.spark.streaming.kafka010.ConsumerStrategies.Subscribe
+import org.apache.spark.streaming.kafka010.KafkaUtils
+import org.apache.spark.streaming.{Seconds, StreamingContext}
 
 /**
  * sparkStreaming整合kafka
  * */
 object StreamingKafka10 {
-  def main(args: Array[String]): Unit = {
-    val spark  = SparkSession.builder().master("local[2]").appName("streaming").getOrCreate()
+  /* def main(args: Array[String]): Unit = {
+   val spark  = SparkSession.builder().master("local[2]").appName("streaming").getOrCreate()
     val sc =spark.sparkContext;
     val ssc = new StreamingContext(sc, Seconds(5))
     val kafkaParams = Map[String, Object](
@@ -36,5 +37,5 @@ object StreamingKafka10 {
 
     ssc.start()
     ssc.awaitTermination()
-  }
+  }*/
 }

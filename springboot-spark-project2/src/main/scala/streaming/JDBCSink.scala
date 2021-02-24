@@ -1,3 +1,5 @@
+package streaming
+
 import java.sql._
 
 import org.apache.spark.sql.{ForeachWriter, Row}
