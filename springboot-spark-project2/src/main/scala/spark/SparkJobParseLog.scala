@@ -26,6 +26,6 @@ object SparkJobParseLog {
       (timeUrl._1, timeUrl._2.size)
     })
    value.collect().foreach(println)
-
+    sparkContext.stop()
   }
 }

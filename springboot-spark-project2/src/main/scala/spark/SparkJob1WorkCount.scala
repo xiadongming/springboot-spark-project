@@ -23,5 +23,6 @@ object SparkJob1WorkCount {
     val wordCount: RDD[(String, Int)] = urlContext.reduceByKey(_ + _)
     wordCount.collect().foreach(println)
    // val value: RDD[(String, Iterable[Int])] = urlContext.groupByKey()
+    sparkContext.stop()
   }
 }

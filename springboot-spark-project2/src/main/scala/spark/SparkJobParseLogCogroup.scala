@@ -43,5 +43,6 @@ object SparkJobParseLogCogroup {
     })
     //result.collect().foreach(println)
     //result2.collect().foreach(println)
+    sparkContext.stop()
   }
 }

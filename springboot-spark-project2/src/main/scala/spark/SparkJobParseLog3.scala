@@ -32,6 +32,6 @@ object SparkJobParseLog3 {
     result2.collect().foreach(println)*/
 
 
-
+    sparkContext.stop()
   }
 }

@@ -18,5 +18,7 @@ object SparkJobTest {
       strings(0)
     })
     value.collect().foreach(println)
+
+    sparkContext.stop()
   }
 }

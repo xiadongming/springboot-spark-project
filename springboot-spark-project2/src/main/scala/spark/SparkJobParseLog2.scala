@@ -27,6 +27,6 @@ object SparkJobParseLog2 {
       (keyValue._1, keyValue._2.toList)
     })
     result.collect().foreach(println)
-
+    sparkContext.stop()
   }
 }
