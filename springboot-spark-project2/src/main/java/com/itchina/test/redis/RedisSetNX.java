@@ -26,7 +26,7 @@ public class RedisSetNX {
         Boolean abcds2 = redisTemplate.delete("name");
         System.out.println(abcds);
         System.out.println(abcds2);
-        //asyncServiceExecutor.execute(new RedisSetnxServiceImpl(redisTemplate));
+        asyncServiceExecutor.execute(new RedisSetnxServiceImpl(redisTemplate));
 
     }
 }
