@@ -1,4 +1,4 @@
-package com.itchina;
+package com.itchina.test;
 
 import com.itchina.bo.Student;
 
