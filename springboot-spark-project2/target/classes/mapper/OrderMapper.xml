@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itchina.mapper.OrderMapper">
+
+   <!-- <select id="queryList"  resultType="com.itchina.bo.Order">
+        select * from t_order_${sourceid}
+    </select>-->
+
+    <resultMap id="resultMap" type="com.itchina.bo.Order">
+      <result column="order_id" property="orderId"/>
+      <result column="user_id" property="userId"/>
+    </resultMap>
+
+    <select id="queryList"  resultMap="resultMap">
+        select * from t_order
+    </select>
+
+    <select id="selectByOrderId"  resultMap="resultMap" parameterType="com.itchina.bo.Order">
+        select * from t_order where order_id = #{orderId}
+    </select>
+
+    <select id="selectByUserId"  resultMap="resultMap" parameterType="com.itchina.bo.Order">
+        select * from t_order where user_id = #{userId}
+    </select>
+
+
+    <select id="selectByBatchOrderIds"  resultMap="resultMap" parameterType="java.util.List">
+        select * from t_order
+        where 1=1
+        and order_id in
+        <foreach collection="orderIds" index="index" item="item" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </select>
+
+
+    <insert id="insertDB2" parameterType="com.itchina.bo.Order"  >
+        insert into t_order (order_id,user_id) values (#{orderId},#{userId})
+    </insert>
+
+
+</mapper>
