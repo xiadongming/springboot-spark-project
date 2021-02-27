@@ -1,4 +1,4 @@
-package com.itchina.test.threadpool;
+package com.itchina.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

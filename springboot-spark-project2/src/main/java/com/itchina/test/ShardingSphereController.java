@@ -30,12 +30,12 @@ public class ShardingSphereController {
      * 查询全部
      */
     @RequestMapping(value = "/jdbc", method = {RequestMethod.GET, RequestMethod.POST})
-    public String getTest() {
+    public List<Order> selectAll() {
         List<Order> orders = orderMapper.queryList();
 
         System.out.println("orders= " + orders);
 
-        return "successful";
+        return orders;
     }
 
     /**
