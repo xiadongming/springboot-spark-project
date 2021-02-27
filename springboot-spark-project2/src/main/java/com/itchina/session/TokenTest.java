@@ -18,6 +18,9 @@ import java.util.Date;
 @RequestMapping("/devJwt")
 public class TokenTest {
 
+    /**
+     * 从jwt的拦截器中，统一获取数据
+     * */
     @RequestMapping(value = "/address", method = {RequestMethod.GET, RequestMethod.POST})
     public String getLoginWithIntercepter(@RequestAttribute String userIdFromHandle) {
 
