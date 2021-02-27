@@ -19,6 +19,17 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <dependencies>
+        <!-- 分布式id生成器 leaf -->
+        <dependency>
+            <groupId>com.sankuai.inf.leaf</groupId>
+            <artifactId>leaf-core</artifactId>
+            <version>1.0.1</version>
+        </dependency>
+        <dependency>
+            <groupId>com.sankuai.inf.leaf</groupId>
+            <artifactId>leaf-server</artifactId>
+            <version>1.0.1</version>
+        </dependency>
 
         <!-- shardingsphere start -->
         <dependency>
