@@ -19,6 +19,13 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <dependencies>
+
+        <!-- guava 实现限流 -->
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>29.0-jre</version>
+        </dependency>
        <!-- quartz -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
