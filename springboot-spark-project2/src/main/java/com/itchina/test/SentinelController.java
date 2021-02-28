@@ -15,6 +15,7 @@ public class SentinelController {
 
     @RequestMapping(value = "/limit",method = {RequestMethod.GET,RequestMethod.POST})
     public String test1(){
+        int a = 100 / 0;
         return "hello sentinel";
     }
 }
