@@ -4,10 +4,7 @@ import com.itchina.common.ApiResponse;
 import org.springframework.boot.web.servlet.error.ErrorAttributes;
 import org.springframework.boot.web.servlet.error.ErrorController;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.context.request.RequestAttributes;
 import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.context.request.WebRequest;
@@ -24,7 +21,6 @@ import java.util.Map;
 public class GlobalExceptionController implements ErrorController {
     private static final String ERROR_PATH = "/error";
     private ErrorAttributes errorAttributes;
-
     public GlobalExceptionController(ErrorAttributes errorAttributes) {
         this.errorAttributes = errorAttributes;
     }
@@ -49,10 +45,25 @@ public class GlobalExceptionController implements ErrorController {
     @ResponseBody
     @ExceptionHandler(value = {Exception.class})
     public ApiResponse errorApiHandler(HttpServletRequest request, final Exception ex, final WebRequest req) {
-        Map<String, Object> attr = this.errorAttributes.getErrorAttributes(req, false);
+        //ServletRequestAttributes requestAttributes = new ServletRequestAttributes(request);
+        Map<String, Object> attrMap = this.errorAttributes.getErrorAttributes(req, false);
         int status = getStatus(request);
-        return ApiResponse.ofMessage(status, String.valueOf(attr.getOrDefault("message", "error")));
+        return ApiResponse.ofMessage(status, String.valueOf(attrMap.getOrDefault("message", "error")));
     }
+
+    /**
+     * 处理页面之外的api，如json/xml
+     * spring-boot-autoconfigure
+     * <version>1.5.7.RELEASE</version> 的包
+     **/
+/*    @RequestMapping(value = ERROR_PATH, method = RequestMethod.GET)
+    @ResponseBody
+    public ApiResponse errorApiHandler(HttpServletRequest request) {
+        ServletRequestAttributes requestAttributes = new ServletRequestAttributes(request);
+        Map<String, Object> attrMap = this.errorAttributes.getErrorAttributes(requestAttributes, false);
+        int status = getStatus(request);
+        return ApiResponse.ofMessage(status,String.valueOf(attrMap.getOrDefault("message","error")));
+    }*/
 
     private int getStatus(HttpServletRequest request) {
         Integer status = (Integer) request.getAttribute("javax.servlet.error.status_code");
