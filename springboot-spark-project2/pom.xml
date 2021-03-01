@@ -94,11 +94,11 @@
             <artifactId>hutool-all</artifactId>
             <version>4.5.13</version>
         </dependency>
-        <dependency>
+     <!--   <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
             <version>1.2.58</version>
-        </dependency>
+        </dependency>-->
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>druid</artifactId>
@@ -224,11 +224,10 @@
             <version>3.5.1</version>
         </dependency>
         <dependency>
-            　　<groupId>org.hibernate</groupId>
-            　　<artifactId>hibernate-validator</artifactId>
-            　　<version>5.2.4.Final</version>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>5.2.4.Final</version>
         </dependency>
-
     </dependencies>
     <build>
         <plugins>
