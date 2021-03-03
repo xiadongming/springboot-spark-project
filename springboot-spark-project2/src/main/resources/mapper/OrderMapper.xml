@@ -33,6 +33,17 @@
         </foreach>
     </select>
 
+    <select id="selectByCondition"  resultMap="resultMap" parameterType="java.util.List">
+        select * from t_order
+        where 1=1
+        <if test="orderId != null and orderId != ''">
+            and order_id like CONCAT('%',#{orderId,jdbcType=BIGINT},'%')
+        </if>
+        <if test="userId != null and userId != ''">
+            and user_Id = #{userId,jdbcType=INTEGER}
+        </if>
+
+    </select>
 
     <insert id="insertDB2" parameterType="com.itchina.bo.Order"  >
         insert into t_order (order_id,user_id) values (#{orderId},#{userId})
