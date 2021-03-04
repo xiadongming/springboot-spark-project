@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Configuration;
 
 /**
  * @Date: 2021/2/27 12:30
- * @描述:
+ * @描述:  雪花算法生成主键
  */
 @Configuration
 public class KeyIdConfig {
