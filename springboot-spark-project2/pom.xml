@@ -19,6 +19,12 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <dependencies>
+        <!-- ftp -->
+        <dependency>
+            <groupId>commons-net</groupId>
+            <artifactId>commons-net</artifactId>
+            <version>3.6</version>
+        </dependency>
 
         <!--pageHelper实现物理分页(比逻辑分页强)-->
         <!-- SpringBoot/MyBatis使用PageHelper分页控件 -->
