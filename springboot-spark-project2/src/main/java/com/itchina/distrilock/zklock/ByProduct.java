@@ -1,4 +1,4 @@
-package com.itchina.zklock;
+package com.itchina.distrilock.zklock;
 
 import com.itchina.bo.Product;
 

@@ -1,4 +1,4 @@
-package com.itchina.test;
+package com.itchina.test.redis;
 
 import org.redisson.api.RLock;
 import org.redisson.api.RedissonClient;

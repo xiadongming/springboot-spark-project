@@ -1,4 +1,4 @@
-package com.itchina.distrilock;
+package com.itchina.distrilock.redislock;
 
 import org.redisson.Redisson;
 import org.redisson.api.RedissonClient;
