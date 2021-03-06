@@ -19,6 +19,14 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <dependencies>
+
+        <!-- redis-->
+        <dependency>
+            <groupId>redis.clients</groupId>
+            <artifactId>jedis</artifactId>
+            <version>2.9.3</version>
+        </dependency>
+
         <!-- ftp -->
         <dependency>
             <groupId>commons-net</groupId>
