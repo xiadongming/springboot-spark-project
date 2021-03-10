@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 /**
  * @Date: 2021/3/10 14:04
- * @Desc:
+ * @Desc:  生产环境下，需要做内网ip
  */
 @RestController
 @RequestMapping("/http")
