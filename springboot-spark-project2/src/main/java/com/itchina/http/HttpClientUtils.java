@@ -73,7 +73,10 @@ public class HttpClientUtils {
             HttpResponse response = httpclient.execute(httpPost);
             if (response.getStatusLine().getStatusCode() == 200) {
                 jsonStr = EntityUtils.toString(response.getEntity());
+                System.out.println("reson= " + response.getStatusLine().getStatusCode() + "===="+response.getStatusLine().getReasonPhrase());
             } else {
+                System.out.println("reson= " + response.getStatusLine().getStatusCode() + "===="+response.getStatusLine().getReasonPhrase());
+                System.out.println("response= " + response);
                 System.out.println("post请求提交失败:" + httpPost.getURI());
             }
         } catch (IOException var8) {
