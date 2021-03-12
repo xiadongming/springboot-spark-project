@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itchina.mapper.LoggerMapper">
+
+    <insert id="insertDB2" parameterType="com.itchina.bo.LoggerBO">
+        insert into logger_busi (content,description,ip,module,username,createAt,updateAt,able)
+        values (#{content},#{description},#{ip},#{module},#{username},#{createAt},#{updateAt},#{able})
+    </insert>
+</mapper>

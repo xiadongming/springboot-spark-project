@@ -3,6 +3,7 @@ package com.itchina.test;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.itchina.bo.Order;
+import com.itchina.logger.LoggerBody;
 import com.itchina.mapper.OrderMapper;
 import com.itchina.page.logic.LogicPage;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,10 +23,12 @@ public class PageHelperController {
 
     @Autowired
     private OrderMapper orderMapper;
+
     /**
      * PageHelper
      * 物理分页,较好
-     * */
+     */
+    @LoggerBody(module = "PageHelper", description = "物理分页,较好")
     @RequestMapping(value = "/db", method = {RequestMethod.GET, RequestMethod.POST})
     public Object getPagePhy(int pageNum) {
 
@@ -39,12 +42,12 @@ public class PageHelperController {
     /**
      * RowBounds
      * 逻辑分页，不好：一下查询出所有的数据到内存，
-     * */
+     */
     @RequestMapping(value = "/logic", method = {RequestMethod.GET, RequestMethod.POST})
     public Object getPageLogic(int pageNum) {
         Order order = new Order();
         order.setOrderId(57L);
-        LogicPage<Order> objectLogicPage = new LogicPage<Order>(pageNum,5);
+        LogicPage<Order> objectLogicPage = new LogicPage<Order>(pageNum, 5);
         List<Order> orders = orderMapper.selectByCondition(order, objectLogicPage);
 
         return orders;

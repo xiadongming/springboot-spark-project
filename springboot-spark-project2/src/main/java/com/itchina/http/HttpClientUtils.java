@@ -72,11 +72,21 @@ public class HttpClientUtils {
             }
             HttpResponse response = httpclient.execute(httpPost);
             if (response.getStatusLine().getStatusCode() == 200) {
+                System.out.println("响应200");
                 jsonStr = EntityUtils.toString(response.getEntity());
                 System.out.println("reson= " + response.getStatusLine().getStatusCode() + "===="+response.getStatusLine().getReasonPhrase());
-            } else {
-                System.out.println("reson= " + response.getStatusLine().getStatusCode() + "===="+response.getStatusLine().getReasonPhrase());
-                System.out.println("response= " + response);
+            } else if (response.getStatusLine().getStatusCode() == 302){
+                System.out.println("响应302");
+                String newUrl = response.getFirstHeader("location").getValue();
+                httpPost = new HttpPost(newUrl);
+                httpPost.setHeader("Content-Type", "application/json;charset=UTF-8");
+                StringEntity  se = new StringEntity(param);
+                httpPost.setEntity(se);
+                response = httpclient.execute(httpPost);
+                jsonStr = EntityUtils.toString(response.getEntity());
+
+            }else {
+                System.out.println("请求失败response= " + response);
                 System.out.println("post请求提交失败:" + httpPost.getURI());
             }
         } catch (IOException var8) {
