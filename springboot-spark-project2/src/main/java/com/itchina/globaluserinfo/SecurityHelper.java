@@ -1,4 +1,4 @@
-package com.itchina.security;
+package com.itchina.globaluserinfo;
 
 /**
  * @Date: 2021/3/12 18:43
