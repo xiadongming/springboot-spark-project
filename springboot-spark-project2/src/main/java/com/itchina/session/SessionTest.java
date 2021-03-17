@@ -1,5 +1,6 @@
 package com.itchina.session;
 
+import com.itchina.common.UserInfoBaseBO;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -21,6 +22,15 @@ public class SessionTest {
     public String getLogin(String userName, String pasWord, HttpServletRequest request, HttpServletResponse response) {
         HttpSession session = request.getSession();
         session.setAttribute("loginName", userName + "_" + pasWord);
+
+        /**
+         * 测试ThreaadLocal
+         * */
+        UserInfoBaseBO user = new UserInfoBaseBO();
+        user.setId("1000");
+        user.setName("雨水");
+
+        session.setAttribute("userInfo",user);
         Cookie cookie = new Cookie("myCookie", userName + "_" + pasWord);
         cookie.setMaxAge(1000);
         cookie.setPath("/");
