@@ -15,6 +15,9 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class UserInfoInterceptor implements HandlerInterceptor {
 
+    /**
+     * 该方法将在Controller处理之前进行调用
+     * */
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         UserInfoBaseBO user = (UserInfoBaseBO) request.getSession().getAttribute("userInfo");
@@ -26,7 +29,15 @@ public class UserInfoInterceptor implements HandlerInterceptor {
     }
 
     /**
-     *
+     * 在Controller的方法调用之后执行，但是它会在DispatcherServlet进行视图的渲染之前执行
+     * */
+   /* @Override
+    public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
+
+    }
+*/
+    /**
+     *  执行时间：方法将在整个请求完成之后，在执行
      * 每个请求都是在一个线程里完成的
      * 每一次的请求会产生一个新的Thread吗?
      * 不会，Tomcat会维护一个托管线程池，多次请求间可能会用到一个线程
