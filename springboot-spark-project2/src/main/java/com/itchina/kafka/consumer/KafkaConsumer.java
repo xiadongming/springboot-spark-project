@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
  * @Date: 2021/3/16 20:58
  * @Desc:
  */
-@Component
+//@Component
 public class KafkaConsumer {
     // 消费监听
     @KafkaListener(id = "consumer1",groupId = "xuewu",topicPartitions={@TopicPartition(topic = "kafka-test-topic", partitions = { "0" })})

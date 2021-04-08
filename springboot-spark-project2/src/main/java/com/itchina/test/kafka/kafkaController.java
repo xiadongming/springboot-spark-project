@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/dev")
 public class kafkaController {
 
-    @Autowired
+   /* @Autowired
     private KafkaProducer kafkaProducer;
 
     @RequestMapping(value = "/kafka",method = {RequestMethod.GET,RequestMethod.POST})
@@ -23,5 +23,5 @@ public class kafkaController {
 
         return "successful";
     }
-
+*/
 }

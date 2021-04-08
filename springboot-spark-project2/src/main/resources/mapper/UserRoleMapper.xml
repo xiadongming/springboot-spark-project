@@ -3,15 +3,5 @@
 <mapper namespace="com.itchina.mapper.UserRoleMapper">
 
 
-    <resultMap id="resultMap" type="com.itchina.security.MyUserInfoDetailBO">
-        <result column="role_name" property="roleName"/>
-        <result column="user_id" property="userId"/>
-    </resultMap>
-
-
-    <select id="selectByLoginName"  resultMap="resultMap">
-        select * from user_role
-    </select>
-
 
 </mapper>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itchina.mapper.GoodsSeckillMapper">
+
+    <resultMap id="resultMap" type="com.itchina.seckill.GoodsSeckillBO">
+        <result column="id" property="id"/>
+        <result column="goods_id" property="goodsId"/>
+        <result column="goods_count" property="goodsCount"/>
+        <result column="start_time" property="startTime"/>
+        <result column="end_time" property="endTime"/>
+        <result column="status" property="status"/>
+        <result column="current_price" property="currentPrice"/>
+    </resultMap>
+
+    <select id="queryByGoodsId" resultMap="resultMap" parameterType="java.lang.Integer">
+        select * from goods_seckill where goods_id = #{goodsId}
+    </select>
+
+    <select id="queryById" resultMap="resultMap" parameterType="java.lang.Integer">
+        select * from goods_seckill where id = #{id}
+    </select>
+
+
+    <select id="findUnStartSeckillGoods" resultMap="resultMap">
+        select * from goods_seckill where now() &gt;= start_time and now() &lt;= end_time and status = 0
+    </select>
+
+    <update id="updateStatus" parameterType="com.itchina.seckill.GoodsSeckillBO">
+       update  goods_seckill set status = '1' where id = #{id}
+    </update>
+
+</mapper>

@@ -12,7 +12,7 @@ import java.util.Map;
  * @Date: 2021/3/17 23:08
  * @Desc: kafka的拦截器
  */
-@Component
+//@Component
 public class CustomProducerInterceptor implements ProducerInterceptor<String, String> {
     private int successCount = 0;
     private int errorCount = 0;

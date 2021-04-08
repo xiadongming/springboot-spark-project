@@ -13,7 +13,7 @@ import java.util.Map;
  * @Date: 2021/3/17 21:50
  * @Desc: 自定义分区，即生产者将消息发送到指定的分区的规则
  */
-@Component
+//@Component
 public class MyPartitionRules implements Partitioner {
 
     @Override
