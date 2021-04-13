@@ -1,15 +1,15 @@
-package com.itchina.source;
+package com.itchina.spring;
 
 /**
  * @Date: 2021/3/28 11:00
  * @Desc:
  */
-public class Dog {
+public class Cat {
 
     public String name;
     public String addRess;
 
-    public Dog(String name, String addRess) {
+    public Cat(String name, String addRess) {
         this.addRess = addRess;
         this.name = name;
     }

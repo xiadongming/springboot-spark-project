@@ -1,4 +1,4 @@
-package com.itchina.source;
+package com.itchina.spring;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

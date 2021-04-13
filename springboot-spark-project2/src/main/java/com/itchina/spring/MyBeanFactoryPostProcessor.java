@@ -1,4 +1,4 @@
-package com.itchina.source;
+package com.itchina.spring;
 
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanFactoryPostProcessor;
