@@ -12,7 +12,7 @@ import org.springframework.context.annotation.Configuration;
  * @Date: 2021/2/28 15:53
  * @Desc: redis的分布式锁
  */
-@Configuration
+//@Configuration
 public class RedisLockConfig {
 
     @Value("${spring.redis.host}")
@@ -25,7 +25,7 @@ public class RedisLockConfig {
     public RedissonClient redissonClient() {
 
         Config config = new Config();
-        config.useSingleServer().setAddress("redis://" + host + ":" + port);
+        //config.useSingleServer().setAddress("redis://" + host + ":" + port);
         //添加主从配置
         //config.useMasterSlaveServers().setMasterAddress("").setPassword("").addSlaveAddress(new String[]{"",""});
 
