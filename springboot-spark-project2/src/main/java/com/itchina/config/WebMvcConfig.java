@@ -1,14 +1,17 @@
 package com.itchina.config;
 
 import com.google.common.util.concurrent.RateLimiter;
+import com.itchina.HadlerUserInfoHandler;
 import com.itchina.intercepter.JWTIntercepter;
 import com.itchina.intercepter.RateLimiterInterceptor;
 import com.itchina.intercepter.UserInfoInterceptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.method.support.HandlerMethodArgumentResolver;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -20,7 +23,8 @@ public class WebMvcConfig implements WebMvcConfigurer {
 
     @Autowired
     private JWTIntercepter jWTIntercepter;
-
+    @Autowired
+    HadlerUserInfoHandler hadlerUserInfoHandler;
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         /** 添加token拦截器 */
@@ -35,5 +39,12 @@ public class WebMvcConfig implements WebMvcConfigurer {
         registry.addInterceptor(new UserInfoInterceptor())
                 .addPathPatterns("/dev/userHolder");
 
+    }
+    /**
+     * 过滤controller的入参，并给入参赋值
+     * */
+    @Override
+    public void addArgumentResolvers(List<HandlerMethodArgumentResolver> resolvers) {
+        resolvers.add(hadlerUserInfoHandler);
     }
 }
