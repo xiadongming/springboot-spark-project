@@ -13,7 +13,17 @@ public class Order implements Serializable {
     @Id
     private Long orderId;
 
-    private Integer userId;
+    private Long userId;
+
+    private String provinceCode;
+
+    public String getProvinceCode() {
+        return provinceCode;
+    }
+
+    public void setProvinceCode(String provinceCode) {
+        this.provinceCode = provinceCode;
+    }
 
     public Long getOrderId() {
         return orderId;
@@ -23,11 +33,11 @@ public class Order implements Serializable {
         this.orderId = orderId;
     }
 
-    public Integer getUserId() {
+    public Long getUserId() {
         return userId;
     }
 
-    public void setUserId(Integer userId) {
+    public void setUserId(Long userId) {
         this.userId = userId;
     }
 
@@ -36,6 +46,7 @@ public class Order implements Serializable {
         return "Order{" +
                 "orderId=" + orderId +
                 ", userId=" + userId +
+                ", provinceCode='" + provinceCode + '\'' +
                 '}';
     }
 }

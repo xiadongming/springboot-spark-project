@@ -1,4 +1,4 @@
-package com.itchina.test;
+package com.itchina.sharding;
 
 import com.itchina.bo.Order;
 import com.itchina.mapper.OrderMapper;
@@ -45,7 +45,8 @@ public class ShardingSphereController {
     public String insertDB2() {
         Order order = new Order();
         order.setOrderId((Long) userKeyGenerator.generateKey());
-        order.setUserId(new Random().nextInt(100));
+        order.setUserId(Long.parseLong(String.valueOf(new Random().nextInt(10))));
+        order.setProvinceCode("180000");
         orderMapper.insertDB2(order);
         return "successful";
     }
@@ -82,7 +83,7 @@ public class ShardingSphereController {
     public Order selectByUserId(String userId) {
 
         Order order = new Order();
-        order.setUserId(Integer.parseInt(userId));
+        order.setUserId(Long.parseLong(userId));
         Order result = orderMapper.selectByUserId(order);
         System.out.println("result= " + result);
         return result;
