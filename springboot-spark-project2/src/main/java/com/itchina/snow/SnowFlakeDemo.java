@@ -1,6 +1,5 @@
 package com.itchina.snow;
 
-import cn.hutool.core.lang.Snowflake;
 
 /**
  * @Date: 2021/4/13 16:20
@@ -9,8 +8,9 @@ import cn.hutool.core.lang.Snowflake;
 public class SnowFlakeDemo {
     public static void main(String[] args) {
 
-        Snowflake snowflake = new Snowflake(1,2);
-
+        Sequence instance = Sequence.getInstance();
+        long l = instance.nextId();
+        System.out.println("l= " + l + ", " + String.valueOf(l).length());
 
     }
 }
