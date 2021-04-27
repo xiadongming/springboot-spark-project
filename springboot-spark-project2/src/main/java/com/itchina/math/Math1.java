@@ -7,5 +7,6 @@ package com.itchina.math;
 public class Math1 {
     public static void main(String[] args) {
 
+        System.out.println(null instanceof  String);
     }
 }
